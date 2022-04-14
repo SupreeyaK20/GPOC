@@ -40,7 +40,7 @@ export const Profile = () => {
               data.getUserProfile.imageUrl === null ? (
                 <img
                   className="avatar"
-                  src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png"
+                  src={require("../../assets/defaultuser.webp")}
                 ></img>
               ) : (
                 <img className="avatar" src={data.getUserProfile.imageUrl} />
