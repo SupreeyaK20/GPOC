@@ -5,7 +5,7 @@ import {
   CheckOutlined,
   CloseOutlined,
 } from "@ant-design/icons";
-import { Table, Row, Col, Card } from "antd";
+import { Table, Row, Col, Card, Switch } from "antd";
 import { useNavigate } from "react-router";
 const Column = Table;
 
@@ -17,6 +17,10 @@ function UserList() {
   if (loading) return null;
   if (error) {
     // navigate("/unauthorizated");
+  }
+
+  function onChange(checked) {
+    console.log(`switch to ${checked}`);
   }
 
   const usersdata = loading
@@ -62,15 +66,17 @@ function UserList() {
       render: (status) => {
         return status === true ? (
           <>
-            <CheckOutlined style={{ color: "green" }} />
+            {/* <CheckOutlined style={{ color: "green" }} />
             &nbsp;&nbsp;
-            <span>Active</span>
+            <span>Active</span> */}
+            <Switch defaultChecked onChange={onChange} />
           </>
         ) : (
           <>
-            <CloseOutlined style={{ color: "red" }} />
+            {/* <CloseOutlined style={{ color: "red" }} />
             &nbsp;&nbsp;
-            <span>Inctive</span>
+            <span>Inctive</span> */}
+            <Switch onChange={onChange} />
           </>
         );
       },
